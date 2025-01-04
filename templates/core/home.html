@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #575d63;
+        }
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+        .sidebar h3 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <!-- Link de Home no título -->
+    <a href="{% url 'home' %}" class="text-center">
+        <h3>Painel Administrativo</h3>
+    </a>
+    <a href="">Fornecedores</a>
+    <a href="">Produtos</a>
+    <a href="">Contratos</a>
+    <a href="">Dashboard</a>
+</div>
+
+<div class="content">
+    {% block content %}
+    <!-- Estatísticas principais no centro -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Bloco de Contratos Ativos -->
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Contratos Ativos</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Quantidade de contratos ativos: <strong>{{ contratos_ativos }}</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloco de Fornecedores Cadastrados -->
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Fornecedores Cadastrados</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Quantidade de fornecedores cadastrados: <strong>{{ fornecedores_count }}</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloco de Produtos/Serviços Cadastrados -->
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Produtos / Serviços Cadastrados</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Quantidade de produtos/serviços cadastrados: <strong>{{ produtos_count }}</strong></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endblock %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
