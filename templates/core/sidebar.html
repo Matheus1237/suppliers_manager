@@ -1,0 +1,46 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #575d63;
+        }
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+        .sidebar h3 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<div class="sidebar">
+    <!-- Link de Home no título -->
+    <a href="{% url 'home' %}" class="text-center">
+        <h3>Painel Administrativo</h3>
+    </a>
+    <a href="/home">Dashboard</a>
+    <a href="/admin" target="_blank">Administração</a>
+    <a href="/cadastro_fornecedor">Fornecedores</a>
+    <a href="/cadastro_produto">Produtos</a>
+    <a href="/cadastro_contrato">Contratos</a>
+</div>
