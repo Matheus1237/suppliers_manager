@@ -1,0 +1,55 @@
+{% include 'core/sidebar.html' %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Fornecedor</title>
+<body>
+
+<!-- Incluindo a Sidebar -->
+{% include 'core/sidebar.html' %}
+
+    <div class="content">
+        <h2 class="mb-4">Cadastro de Fornecedor</h2>
+
+        <!-- Formulário de Cadastro -->
+        <form method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_nome" class="col-form-label">Nome do Fornecedor</label>
+                {{ form.nome }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_telefone" class="col-form-label">Telefone</label>
+                {{ form.telefone }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_email" class="col-form-label">Email</label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_cidade" class="col-form-label">Cidade</label>
+                {{ form.cidade }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_estado" class="col-form-label">Estado (UF)</label>
+                {{ form.estado }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_cep" class="col-form-label">CEP</label>
+                {{ form.cep }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Cadastrar Fornecedor</button>
+        </form>
+    </div>
+</body>
+</html>
+{% include 'core/footer.html' %}

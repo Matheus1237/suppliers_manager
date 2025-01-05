@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Contrato</title>
+<body>
+
+    {% include 'core/sidebar.html' %}
+
+
+    <div class="content">
+        <h2 class="mb-4">Cadastro de Contrato</h2>
+
+        <form method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_produto" class="col-form-label">Produto</label>
+                {{ form.produto }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_quantidade" class="col-form-label">Quantidade</label>
+                {{ form.quantidade }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Cadastrar Contrato</button>
+        </form>
+    </div>
+</body>
+</html>
+{% include 'core/footer.html' %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+
+{% include 'core/sidebar.html' %}
+
+
+    <div class="content">
+        <h2 class="mb-4">Cadastro de Produto</h2>
+
+        <form method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_produto" class="col-form-label">Nome do Produto</label>
+                {{ form.produto }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_fornecedor" class="col-form-label">Fornecedor</label>
+                {{ form.fornecedor }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_valor_por_unidade" class="col-form-label">Valor por Unidade</label>
+                {{ form.valor_por_unidade }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+        </form>
+    </div>
+</body>
+</html>
+{% include 'core/footer.html' %}

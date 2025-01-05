@@ -1,0 +1,30 @@
+# Ambiente Virtual
+venv/
+.env/
+.venv/
+
+# PyCharm / VSCode
+.idea/
+.vscode/
+
+# Arquivos compilados
+*.pyc
+*.pyo
+__pycache__/
+
+# Arquivos de configuração locais
+*.env
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de log
+*.log
+
+# Arquivos de teste temporários
+.coverage
+.tox/
+.nox/
+.hypothesis/
+.pytest_cache/
