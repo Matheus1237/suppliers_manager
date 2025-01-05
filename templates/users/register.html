@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .register-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .alert {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2 class="form-title">Cadastro</h2>
+
+        <!-- Exibição de mensagens de erro e sucesso -->
+        {% if messages %}
+            <div class="alert alert-danger">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Formulário de Cadastro -->
+        <form method="POST" action="{% url 'cadastro' %}">
+            {% csrf_token %}
+
+            <!-- Campo para o nome de cadastro -->
+            <div class="form-group">
+                <label for="nome_cadastro">Nome de Cadastro</label>
+                {{ form.nome_cadastro }}
+                {% if form.nome_cadastro.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.nome_cadastro.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <!-- Campo para o email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <!-- Campo para a senha -->
+            <div class="form-group">
+                <label for="senha_1">Senha</label>
+                {{ form.senha_1 }}
+                {% if form.senha_1.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.senha_1.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <!-- Campo para confirmar a senha -->
+            <div class="form-group">
+                <label for="senha_2">Confirme a sua Senha</label>
+                {{ form.senha_2 }}
+                {% if form.senha_2.errors %}
+                    <ul class="text-danger">
+                        {% for error in form.senha_2.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+        </form>
+        
+        <div class="text-center mt-3">
+            <a href="{% url 'login' %}">Já tem uma conta? Faça login</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
