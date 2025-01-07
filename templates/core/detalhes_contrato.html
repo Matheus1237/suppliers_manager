@@ -15,11 +15,16 @@
         
         <div class="card mt-4">
             <div class="card-body">
-                <h5 class="card-title">{{ contrato.produto.produto }}</h5>
+                <h3 class="card-title">{{ contrato.produto.produto }}</h3>
                 <p class="card-text">Fornecedor: {{ contrato.produto.fornecedor.nome }}</p>
+                <p class="card-text">Telefone: {{ contrato.produto.fornecedor.telefone }}</p>
+                <p class="card-text">Email: {{ contrato.produto.fornecedor.email }}</p>
+                <p class="card-text">Cidade: {{ contrato.produto.fornecedor.cidade }}</p>
+                <p class="card-text">Estado: {{ contrato.produto.fornecedor.estado }}</p>
+                <p class="card-text">CEP: {{ contrato.produto.fornecedor.cep }}</p>
                 <p class="card-text">Valor por unidade: R$ {{ contrato.produto.valor_por_unidade }}</p>
                 <p class="card-text">Quantidade contratada: {{ contrato.quantidade }}</p>
-                <h4 class="card-text">Valor total: R$ {{ valor_total }}</h4>
+                <h5 class="card-text">Valor total: R$ {{ valor_total }}</h5>
             </div>
         </div>
         
