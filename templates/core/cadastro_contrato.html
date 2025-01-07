@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Contrato</title>
+    <title>Criar Contrato</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
 
     {% include 'core/sidebar.html' %}
 
 
     <div class="content">
-        <h2 class="mb-4">Cadastro de Contrato</h2>
-
-        <form method="post" class="form-horizontal">
+        <h1 class="mb-4">Criar Contrato para {{ produto.produto }}</h1>
+        <h4 class="mb-3">Valor por unidade: R$ {{ produto.valor_por_unidade }}</h4>
+        <h4 class="mb-4">Fornecedor: {{ produto.fornecedor.nome }}</h4>
+    
+        <form method="POST" class="mt-4">
             {% csrf_token %}
             <div class="form-group">
-                <label for="id_produto" class="col-form-label">Produto</label>
-                {{ form.produto }}
+                <label for="quantidade" class="h5">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" class="form-control" style="font-size: 18px; padding: 10px;">
             </div>
-
-            <div class="form-group">
-                <label for="id_quantidade" class="col-form-label">Quantidade</label>
-                {{ form.quantidade }}
-            </div>
-
-            <button type="submit" class="btn btn-primary">Cadastrar Contrato</button>
+            
+            <button type="submit" class="btn btn-primary mt-3">Criar Contrato</button>
         </form>
+    
+        <br>
+        <a href="{% url 'listagem_produtos' %}" class="btn btn-secondary mt-3">Voltar para a lista de produtos</a>
     </div>
+    
+
 </body>
 </html>
-{% include 'core/footer.html' %}

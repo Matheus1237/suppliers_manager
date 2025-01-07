@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Produtos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    {% include 'core/sidebar.html' %}
+
+    <div class="content">
+        <h1>Produtos</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome do Produto</th>
+                    <th>Valor por Unidade</th>
+                    <th>Fornecedor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                    <tr>
+                        <td><a href="{% url 'cadastro_contrato' produto.id %}">{{ produto.produto }}</a></td>
+                        <td>R$ {{ produto.valor_por_unidade }}</td>
+                        <td>{{ produto.fornecedor.nome }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">Nenhum produto encontrado.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
