@@ -3,44 +3,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Geral */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+        }
+    
+        /* Sidebar */
         .sidebar {
             height: 100vh;
             width: 250px;
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #343a40;
+            background-color: #2c3e50;  /* Nova cor de fundo */
             color: white;
-            padding-top: 20px;
+            padding-top: 30px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+            transition: all 0.3s ease;
         }
+    
+        .sidebar:hover {
+            width: 270px;  /* Aumenta a largura ao passar o mouse */
+        }
+    
+        .sidebar h3 {
+            text-align: center;
+            font-size: 22px;
+            color: #ecf0f1;  /* Cor clara para o título */
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    
+        /* Links da Sidebar */
         .sidebar a {
-            color: white;
-            padding: 10px 15px;
+            color: #ecf0f1;  /* Cor clara para os links */
+            padding: 12px 20px;
             text-decoration: none;
             display: block;
+            font-size: 16px;
+            border-bottom: 1px solid #34495e;  /* Linha divisória sutil entre os itens */
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
         }
+    
         .sidebar a:hover {
-            background-color: #575d63;
+            background-color: #16a085;  /* Cor de destaque ao passar o mouse */
+            padding-left: 30px;  /* Desloca o link para a direita */
         }
+    
+        /* Conteúdo principal */
         .content {
-            margin-left: 260px;
-            padding: 20px;
+            margin-left: 270px;  /* Ajuste para o tamanho da sidebar */
+            padding: 30px;
+            background-color: #ecf0f1;
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
         }
-        .sidebar h3 {
-            cursor: pointer;
+    
+        /* Botões */
+        .btn {
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+    
+        .btn-primary {
+            background-color: #3498db;  /* Cor do botão */
+            border: none;
+        }
+    
+        .btn-primary:hover {
+            background-color: #2980b9;  /* Cor do botão ao passar o mouse */
+        }
+    
+        .btn-info {
+            background-color: #16a085;
+            border: none;
+        }
+    
+        .btn-info:hover {
+            background-color: #1abc9c;
         }
     </style>
+    
 </head>
 
 <div class="sidebar">
     <!-- Link de Home no título -->
     <a href="{% url 'home' %}" class="text-center">
-        <h3>Painel Administrativo</h3>
+        <h3>Painel de Controle</h3>
     </a>
-    <a href="/home">Dashboard</a>
-    <a href="/admin" target="_blank">Administração</a>
-    <a href="/cadastro_fornecedor">Fornecedores</a>
-    <a href="/cadastro_produto">Produtos</a>
-    <a href="/cadastro_contrato">Contratos</a>
+    <a href="/" class="d-flex align-items-center">
+        <i class="fas fa-tachometer-alt mr-2"></i> Visão Geral
+    </a>
+    <a href="/cadastro_fornecedor" class="d-flex align-items-center">
+        <i class="fas fa-truck mr-2"></i> Adicionar Fornecedor
+    </a>
+    <a href="/cadastro_produto" class="d-flex align-items-center">
+        <i class="fas fa-box mr-2"></i> Adicionar Produto
+    </a>
+    <a href="/listagem_produtos" class="d-flex align-items-center">
+        <i class="fas fa-handshake mr-2"></i> Contratar Fornecimentos
+    </a>
+    <a href="/listagem_contratos" class="d-flex align-items-center">
+        <i class="fas fa-file-contract mr-2"></i> Contratos Ativos
+    </a>
+    <a href="/listagem_produtos" class="d-flex align-items-center">
+        <i class="fas fa-box-open mr-2"></i> Produtos Cadastrados
+    </a>
+    <a href="/admin" target="_blank" class="d-flex align-items-center">
+        <i class="fas fa-cogs mr-2"></i> Configurações do Sistema
+    </a>
 </div>
+

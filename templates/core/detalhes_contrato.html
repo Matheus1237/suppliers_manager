@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Contrato</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    {% include 'core/sidebar.html' %}
+
+    <div class="content">
+        <h1>Detalhes do Contrato</h1>
+        
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ contrato.produto.produto }}</h5>
+                <p class="card-text">Fornecedor: {{ contrato.produto.fornecedor.nome }}</p>
+                <p class="card-text">Valor por unidade: R$ {{ contrato.produto.valor_por_unidade }}</p>
+                <p class="card-text">Quantidade contratada: {{ contrato.quantidade }}</p>
+                <h4 class="card-text">Valor total: R$ {{ valor_total }}</h4>
+            </div>
+        </div>
+        
+        <br>
+        <a href="{% url 'listagem_contratos' %}" class="btn btn-secondary">Voltar para a lista de contratos</a>
+    </div>
+</body>
+</html>
