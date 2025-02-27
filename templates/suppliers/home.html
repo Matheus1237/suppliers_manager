@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+
+<!-- Incluindo a Sidebar -->
+{% include 'suppliers/sidebar.html' %}
+
+<div class="content">
+    <h2>Painel Administrativo</h2>
+
+    <style>
+        /* Estilo dos Cards */
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 250px;  /* Altura mínima para o card */
+            max-height: 300px;  /* Altura máxima para garantir que o card não seja muito grande */
+        }
+    
+        .card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+    
+        .card-header {
+            background-color: #2dcea0;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            flex-grow: 1;  /* Garante que o título ocupe o espaço necessário sem deformar o layout */
+            white-space: normal;  /* Permite quebra de linha no título, se necessário */
+            word-wrap: break-word;  /* Garante que o texto longo será quebrado corretamente */
+            overflow: hidden; /* Evita transbordamento de texto */
+        }
+    
+        .card-body {
+            background-color: #ecf0f1;
+            text-align: center;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            flex-grow: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Alinha o conteúdo ao centro */
+        }
+    
+        .card-body h4 {
+            font-size: 32px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+    
+        /* Ícones */
+        .card-body .icon {
+            font-size: 50px;
+            color: #2DCEA0;
+            margin-bottom: 15px;
+        }
+    
+        /* Layout geral */
+        .container-fluid {
+            padding: 0 30px;
+        }
+    
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;  /* Garante que os cards se ajustem em telas menores */
+        }
+    
+        .col-xl-4 {
+            padding: 20px;
+            flex: 1 0 30%;  /* Permite que os cards se ajustem de forma flexível */
+            margin: 10px;  /* Espaço entre os cards */
+        }
+    
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .col-xl-4 {
+                flex: 1 0 100%; /* Em telas menores, os cards ocupam 100% da largura */
+            }
+        }
+    </style>
+    
+    
+    
+    <!-- Estatísticas principais no centro -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Bloco de Contratos Ativos -->
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-file-contract icon"></i>
+                        <h3 class="mb-0">Contratos Ativos</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>{{ num_contratos }}</h4>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bloco de Fornecedores Cadastrados -->
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-truck icon"></i>
+                        <h3 class="mb-0">Fornecedores Cadastrados</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>{{ num_fornecedores }}</h4>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bloco de Produtos Cadastrados -->
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-box icon"></i>
+                        <h3 class="mb-0">Produtos Cadastrados</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>{{ num_produtos }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+{% include 'suppliers/footer.html' %}
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
