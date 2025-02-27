@@ -24,10 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lz+=ydpr^&8wl1iks+l_uwcd0sjs(0eqxw7za^8wa3xv^s%8(l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*", "impartial-kindness-production.up.railway.app"]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://impartial-kindness-production.up.railway.app', "*"
+]
 
 # Application definition
 
