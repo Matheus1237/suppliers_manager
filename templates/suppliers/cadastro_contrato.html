@@ -17,7 +17,7 @@
         <h4 class="mb-4">Fornecedor: {{ produto.fornecedor.nome }}</h4>
     
         <form method="POST" class="mt-4">
-            """
+            {% csrf_token %}
             <div class="form-group">
                 <label for="quantidade" class="h5">Quantidade:</label>
                 <input type="number" id="quantidade" name="quantidade" class="form-control" style="font-size: 18px; padding: 10px;">
